@@ -22,7 +22,11 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "gluegun": "latest"
+    "fs-extra": "^8.1.0",
+    "gluegun": "latest",
+    "nunjucks": "^3.2.3",
+    "upmk-utils": "^0.0.1",
+    "yaml": "^1.10.2"
   },
   "devDependencies": {
     "copyfiles": "^2.4.1",
