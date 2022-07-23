@@ -1,6 +1,6 @@
 {
   "name": "barque",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "barque CLI",
   "bin": {
     "barque": "bin/barque"
