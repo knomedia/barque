@@ -2,7 +2,6 @@
   "name": "barque",
   "version": "0.0.1",
   "description": "barque CLI",
-  "private": true,
   "bin": {
     "barque": "bin/barque"
   },
