@@ -35,7 +35,7 @@ function getNpmToken(tb) {
 
 async function packageApp(tb) {
   let mode = tb.parameters.first
-  tb.print.info('packaging app for:', mode);
+  tb.print.info('packaging app for: ' + mode);
   let version = getVersion(tb)
   let settings = getSettings()
   let skipGit = !!tb.parameters.options.skipGit

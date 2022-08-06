@@ -28,7 +28,7 @@ For example
 
 
 ```sh
-barque package production 0.2.45 --npm_token=abcdefg
+barque package production 0.2.45 --npm-token=abcdefg
 ```
 
 
