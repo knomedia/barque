@@ -22,7 +22,7 @@ function getSettings(){
 function getVersion(tb) {
   let version = tb.semver.clean(tb.parameters.second)
   if (!tb.semver.valid(version)) {
-    tb.print.error('version: "' + version + '" is not valid');
+    tb.print.error('given version: "' + tb.parameters.second + '" is not valid');
     process.exit(1)
   }
   return version
