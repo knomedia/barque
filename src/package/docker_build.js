@@ -7,13 +7,14 @@ function buildImageName(settings, version) {
   return org + name + ':' + version
 }
 
-function buildArgs(npmToken) {
+function buildArgs(npmToken, envMode) {
+  envMode = envMode || 'production'
   if (npmToken) {
-    return `--build-arg NPM_TOKEN=${npmToken}`
+    return `--build-arg NPM_TOKEN=${npmToken} --build-arg ENV_MODE=${envMode}`
   }
 }
-function buildCMD(image, npmToken) {
-  let args = buildArgs(npmToken)
+function buildCMD(image, npmToken, envMode) {
+  let args = buildArgs(npmToken, envMode)
   let cmd = `docker build -t ${image}`
   if (args) {
     cmd += " " + args
@@ -21,8 +22,8 @@ function buildCMD(image, npmToken) {
   cmd += " ."
   return cmd
 }
-async function build(tb, image, npmToken) {
-  let cmd = buildCMD(image, npmToken)
+async function build(tb, image, npmToken, envMode) {
+  let cmd = buildCMD(image, npmToken, envMode)
   tb.print.info(cmd)
   let output = await tb.system.run(cmd)
   tb.print.info(output)
@@ -35,9 +36,9 @@ async function push(tb, image) {
   tb.print.info(output)
 }
 
-async function dockerPackage(tb, version, settings, npmToken) {
+async function dockerPackage(tb, version, settings, npmToken, envMode) {
   let image = buildImageName(settings, version)
-  await build(tb, image, npmToken)
+  await build(tb, image, npmToken, envMode)
   return image
 }
 

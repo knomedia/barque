@@ -43,7 +43,7 @@ async function packageApp(tb) {
   let env = getEnvironment(tb, mode, settings)
   let npmToken = getNpmToken(tb)
   await verifyAcceptedBranch(tb, mode, env)
-  let image = await dockerBuild(tb, version, settings, npmToken)
+  let image = await dockerBuild(tb, version, settings, npmToken, mode)
   if (!skipDockerPush) {
     await dockerPush(tb, image)
   } else {
